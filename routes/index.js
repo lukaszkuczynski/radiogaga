@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var player = require('../windows_player')
+var player_win = require('../windows_player')
+var player_debian = require('../debian_player')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,9 +9,15 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/play', function(req, res, next) {
-  player.play(1)
+router.get('/play_windows', function(req, res, next) {
+  player_win.play(1)
   res.redirect('/')
 });
+
+router.get('/play_debian', function(req, res, next) {
+  player_debian.play(1)
+  res.redirect('/')
+});
+
 
 module.exports = router;
