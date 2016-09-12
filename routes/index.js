@@ -19,5 +19,9 @@ router.get('/play_debian', function(req, res, next) {
   res.redirect('/')
 });
 
+router.get('/stop', function(req, res, next) {
+  player_debian.stop()
+  res.redirect('/')
+});
 
 module.exports = router;
