@@ -1,9 +1,21 @@
 extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
-  p  
-  a(href="/play_debian") Play me!
-  p
-  a(href="/stop") Stop!
+block content 
+  nav.navbar.navbar-default( role="navigation" )
+    .navbar-header
+        button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#navbar-inverse", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        a.navbar-brand(href="#") Radio gaga
+    #navbar-inverse.collapse.navbar-collapse
+        ul.nav.navbar-nav
+            li: a( href="/stop") Stop
+
+    div.btn-group-vertical(role="group")
+
+        each station in stations
+          a(class="btn btn-default" href="/play_gg_relay/#{station.gg_id}") #{station.name}
+
+

@@ -6,6 +6,16 @@ exports.play = function(station) {
     fifo.close()
 }
 
+exports.play_gg_relay = function(gg_id) {
+    let url = 'http://gr-relay-1.gaduradio.pl/'+gg_id    
+    console.log('playing station by url '+url)
+    const FIFO = require('fifo-js')
+    let fifo = new FIFO('/tmp/mplayer_fifo')
+    line = 'loadfile '+url
+    fifo.write(line)
+    fifo.close()
+}
+
 exports.stop = function() {
     console.log('stopping')
     const FIFO = require('fifo-js')
