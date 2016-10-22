@@ -1,1 +1,1 @@
-docker build -t lukpi/node .
+docker build -t pishon/gaga .

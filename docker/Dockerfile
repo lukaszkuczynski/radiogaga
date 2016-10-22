@@ -1,18 +1,20 @@
 FROM linkerlab/rpi-omxplayer 
 MAINTAINER pishon <kuczynskilukasz@gmail.com>
 
-apt-get update
-apt-get install curl
+RUN apt-get update && apt-get install curl
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-sudo apt install -y nodejs
+RUN apt install -y nodejs
 
-apt-get install git
+RUN apt-get install git
 
-git clone https://github.com/pishon/radiogaga.git
-cd radiogaga
-npm install
+WORKDIR /root
+RUN git clone https://github.com/pishon/radiogaga.git
+WORKDIR /root/radiogaga
+RUN npm install
+
+ENTRYPOINT ["/bin/sh", "/root/radiogaga/docker/pull_and_start.sh"]
 
 
 
