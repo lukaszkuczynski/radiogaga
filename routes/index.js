@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var player_win = require('../windows_player')
 var player_debian = require('../debian_player')
+var cmd_player = require('../cmd_player')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,12 +17,12 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/play_gg_relay/:gg_id', function(req, res, next) {
-  player_debian.play_gg_relay(1)
+  cmd_player.play_gg_relay(1)
   res.redirect('/')
 });
 
 router.get('/stop', function(req, res, next) {
-  player_debian.stop()
+  cmd_player.stop()
   res.redirect('/')
 });
 

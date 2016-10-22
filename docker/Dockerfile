@@ -1,11 +1,18 @@
-FROM hypriot/rpi-node
-RUN apt-get update && apt-get install less && apt-get install nano && apt-get install mc
-ENV TERM xterm
-WORKDIR /root
-RUN git clone https://github.com/pishon/radiogaga
-RUN cd radiogaga && npm install
-EXPOSE 3000
-COPY pull_and_start.sh /root/pull_and_start.sh
+FROM linkerlab/rpi-omxplayer 
+MAINTAINER pishon <kuczynskilukasz@gmail.com>
 
-WORKDIR /root
-ENTRYPOINT ["/bin/sh", "./pull_and_start.sh"]
+apt-get update
+apt-get install curl
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+sudo apt install -y nodejs
+
+apt-get install git
+
+git clone https://github.com/pishon/radiogaga.git
+cd radiogaga
+npm install
+
+
+
