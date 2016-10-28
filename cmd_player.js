@@ -1,4 +1,4 @@
-var exec = require('child_process').exec;
+var execFile = require('child_process').execFile;
 var fs = require('fs');
 
 
@@ -17,11 +17,11 @@ exports.play_gg_relay = function(gg_id) {
     console.log('playing station by url '+url)
 
     let command = "omxplayer "+ url
-    let child = exec(command, function (error, stdout, stderr) {
+    let child = execFile(command, function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
       if (error !== null) {
-          console.log('exec error: ' + error);
+          console.log('execFile error: ' + error);
       }
     });
 
