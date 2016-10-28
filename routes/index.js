@@ -3,6 +3,7 @@ var router = express.Router();
 var player_win = require('../windows_player')
 var player_debian = require('../debian_player')
 var cmd_player = require('../cmd_player')
+var win_cmd_player = require('../windows_cmd_fake_player')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
