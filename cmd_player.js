@@ -16,8 +16,9 @@ exports.play_gg_relay = function(gg_id) {
     let url = 'http://gr-relay-1.gaduradio.pl/'+gg_id    
     console.log('playing station by url '+url)
 
-    let command = "omxplayer "+ url
-    let child = execFile(command, function (error, stdout, stderr) {
+    let command = "omxplayer"
+    let args = [url]
+    let child = execFile(command, args, function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
       if (error !== null) {
