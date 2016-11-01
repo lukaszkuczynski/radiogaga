@@ -1,6 +1,6 @@
 var execFile = require('child_process').execFile;
 var fs = require('fs');
-
+var killer = require('./killer')
 
 exports.play = function(station) {
     console.log('playing station '+station)
@@ -30,9 +30,8 @@ exports.play_gg_relay = function(gg_id) {
 }
 
 exports.stop = function() {
-  killByPid();
-  console.log('stopping - kill')
-    
+  killer.kill_by_name('omxplayer');
+  console.log('stopping - kill')    
 }
 
 const PID_FILE = 'gaga.pid';
