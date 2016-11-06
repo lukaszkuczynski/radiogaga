@@ -1,20 +1,16 @@
-var ps = require('ps-node');
+var exec = require('child_process').exec;
 
 exports.kill_by_name = function(name) {
  
-    ps.lookup({
-        command: name,
-        }, function(err, resultList ) {
-        if (err) {
-            throw new Error( err );
-        }
-     
-        resultList.forEach(function( pro ){
-            if( pro ){
-                console.log( 'will kill PID: %s, COMMAND: %s, ARGUMENTS: %s', pro.pid, pro.command, pro.arguments );
-                process.kill(pro.pid);
 
-            }
-        });
+    var cmd = 'pkill '+name;
+    console.log( 'will execute pkill for '+name);
+
+    exec(cmd, function(error, stdout, stderr) {
+      if (error) {
+        console.log(error);
+      }
     });
+
+
 }
