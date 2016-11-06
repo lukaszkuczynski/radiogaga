@@ -2,6 +2,9 @@ var execFile = require('child_process').execFile;
 var fs = require('fs');
 var killer = require('./killer')
 
+var _this = this;
+
+
 exports.play = function(station) {
     console.log('playing station '+station)
     const FIFO = require('fifo-js')
@@ -11,7 +14,7 @@ exports.play = function(station) {
 }
 
 exports.play_gg_relay = function(gg_id) {
-    killByPid();
+    _this.stop();
 
     let url = 'http://gr-relay-1.gaduradio.pl/'+gg_id    
     console.log('playing station by url '+url)
@@ -39,14 +42,4 @@ const PID_FILE = 'gaga.pid';
 function savePid(pid) {
   console.log('saving pid ' + pid);
   fs.writeFile(PID_FILE, pid);
-}
-
-function killByPid() {
-  try {
-    var pid = fs.readFileSync(PID_FILE);
-    console.log('will kill by pid = '+pid);
-    process.kill(pid);
-  } catch(e) {
-    console.log("error while killing " + e);
-  }
 }
