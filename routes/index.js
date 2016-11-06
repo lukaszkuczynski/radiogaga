@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/play_gg_relay/:gg_id', function(req, res, next) {
-  cmd_player.play_gg_relay(1)
+  console.log('requested with '+req.params.gg_id);
+  cmd_player.play_gg_relay(req.params.gg_id)
   res.redirect('/')
 });
 
