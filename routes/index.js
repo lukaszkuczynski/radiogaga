@@ -9,6 +9,7 @@ var win_cmd_player = require('../windows_cmd_fake_player')
 router.get('/', function(req, res, next) {
     var stations = [
       {"name": "crema cafe", "gg_id":76},
+      {"name": "latino", "gg_id":19},
       {"name": "po polsku", "gg_id":1},
       {"name": "smooth jazz", "gg_id":60},
       {"name": "polski rock", "gg_id":29}
