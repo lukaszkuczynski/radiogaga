@@ -8,11 +8,11 @@ var win_cmd_player = require('../windows_cmd_fake_player')
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var stations = [
-      {"name": "crema cafe", "gg_id":76},
-      {"name": "latino", "gg_id":19},
-      {"name": "po polsku", "gg_id":1},
-      {"name": "smooth jazz", "gg_id":60},
-      {"name": "polski rock", "gg_id":29}
+      {"id":1, "name": "crema cafe", "gg_id":76},
+      {"id":2, "name": "latino", "gg_id":19},
+      {"id":3, "name": "po polsku", "gg_id":1},
+      {"id":4, "name": "smooth jazz", "gg_id":60},
+      {"id":5, "name": "polski rock", "gg_id":29}
     ]
     res.render('index', { title: 'Radio gaga', stations:stations });
 });

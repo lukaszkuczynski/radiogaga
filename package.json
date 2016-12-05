@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --use_strict ./bin/www"
+    "start": "nodemon --use_strict ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -15,5 +15,8 @@
     "morgan": "~1.7.0",
     "ps-node": "^0.1.4",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
